@@ -51,27 +51,27 @@ if (document.querySelector('.page-hero')) {
 }
 
 /* --- Scroll reveal helpers --- */
-const reveal = (sel, extra = {}) =>
+const reveal = (sel, fromProps = {}) =>
   gsap.utils.toArray(sel).forEach(el =>
-    gsap.to(el, {
-      opacity: 1, y: 0, x: 0, duration: 0.65, ease: 'power2.out',
-      scrollTrigger: { trigger: el, start: 'top 90%', once: true },
-      ...extra
+    gsap.from(el, {
+      opacity: 0, y: 28, duration: 0.65, ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top bottom', once: true },
+      ...fromProps
     })
   );
 
 const batch = (sel, stagger = 0.1) =>
   ScrollTrigger.batch(sel, {
-    onEnter: els => gsap.to(els, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', stagger }),
-    start: 'top 90%', once: true
+    onEnter: els => gsap.from(els, { opacity: 0, y: 28, duration: 0.6, ease: 'power2.out', stagger }),
+    start: 'top bottom', once: true
   });
 
 /* Run after DOM ready */
 document.addEventListener('DOMContentLoaded', () => {
   reveal('.fade-up');
-  reveal('.fade-in', { duration: 0.8 });
-  reveal('.slide-r', { x: 0 });
-  reveal('.slide-l', { x: 0 });
+  reveal('.fade-in', { y: 0, duration: 0.8 });
+  reveal('.slide-r', { y: 0, x: -28 });
+  reveal('.slide-l', { y: 0, x: 28 });
   batch('.svc-card', 0.12);
   batch('.why-card', 0.1);
   batch('.step',     0.07);

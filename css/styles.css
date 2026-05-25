@@ -225,11 +225,11 @@ p  { color: var(--silver); line-height: 1.75; }
 }
 .hero-bg img {
   width: 100%; height: 100%;
-  object-fit: cover; opacity: 0.4;
+  object-fit: cover; opacity: 0.65;
 }
 .hero-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(110deg, rgba(8,8,8,0.9) 40%, rgba(8,8,8,0.35) 100%);
+  background: linear-gradient(110deg, rgba(8,8,8,0.55) 20%, rgba(8,8,8,0.15) 100%);
 }
 /* Subtle blue radial glow */
 .hero-glow {
@@ -648,12 +648,8 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0 100px var(--surface) inset; -
 }
 
 /* ============================================================
-   GSAP ANIMATION TARGETS
+   GSAP ANIMATION TARGETS — initial state managed by gsap.from()
    ============================================================ */
-.fade-up   { opacity: 0; transform: translateY(28px); }
-.fade-in   { opacity: 0; }
-.slide-r   { opacity: 0; transform: translateX(-28px); }
-.slide-l   { opacity: 0; transform: translateX(28px); }
 
 /* ============================================================
    ACCESSIBILITY
