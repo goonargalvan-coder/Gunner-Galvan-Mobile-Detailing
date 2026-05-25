@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book an Appointment | Gunnar Galvan Mobile Detailing</title>
+  <meta name="description" content="Book your mobile car detail in Frisco, TX. Call or text 940-453-0972 or fill out our quick form. We come to your home or office, Mon–Fri starting at 9am.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Gunnar Galvan<span class="logo-dot">.</span>
+          <span class="logo-sub">Mobile Detailing</span>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html"    class="nav-link" data-page="index.html">Home</a></li>
+          <li><a href="services.html" class="nav-link" data-page="services.html">Services</a></li>
+          <li><a href="contact.html"  class="nav-link" data-page="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="tel:9404530972" class="nav-phone-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            940-453-0972
+          </a>
+          <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" role="dialog" aria-modal="true">
+    <a href="index.html"    class="nav-link" data-page="index.html">Home</a>
+    <a href="services.html" class="nav-link" data-page="services.html">Services</a>
+    <a href="contact.html"  class="nav-link" data-page="contact.html">Contact</a>
+    <a href="tel:9404530972" class="nav-phone-btn" style="font-size:1rem;padding:1rem 2rem;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      940-453-0972
+    </a>
+  </div>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="label-tag">Book an Appointment</span>
+        <h1>Let's Get Your Car<br>Looking Its Best</h1>
+        <div class="accent-line"></div>
+        <p>Fill out the form and we'll confirm your appointment. Prefer to talk? Call or text us directly at <a href="tel:9404530972" style="color:var(--accent-light);font-weight:700;">940-453-0972</a>.</p>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         CONTACT SECTION
+         ====================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="contact-wrap">
+
+          <!-- FORM -->
+          <div class="contact-form-card slide-r">
+            <h2>Send Us a Message</h2>
+            <p>We'll get back to you to confirm your date, time, and location. Usually within a few hours during business hours.</p>
+
+            <form class="contact-form" novalidate aria-label="Booking request form">
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Your Name</label>
+                  <input type="text" id="name" name="name" placeholder="John Smith" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" placeholder="(940) 000-0000" autocomplete="tel" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" autocomplete="email" required>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="service">Service Interested In</label>
+                  <select id="service" name="service" required>
+                    <option value="" disabled selected>Select a package…</option>
+                    <option value="exterior">Exterior Detail — from $50</option>
+                    <option value="interior">Interior Detail — from $150</option>
+                    <option value="full">Full Detail — from $200</option>
+                    <option value="unsure">Not sure — help me choose</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="vehicle">Vehicle Type</label>
+                  <select id="vehicle" name="vehicle" required>
+                    <option value="" disabled selected>Select vehicle type…</option>
+                    <option value="car">Car / Sedan / Coupe</option>
+                    <option value="suv">SUV / Crossover</option>
+                    <option value="truck">Truck</option>
+                    <option value="van">Van / Minivan</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message <span style="color:var(--muted);font-weight:400;">(optional)</span></label>
+                <textarea id="message" name="message" placeholder="Anything we should know — vehicle condition, preferred day/time, your address or general area, specific concerns…"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;">
+                Send Booking Request
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+
+              <p style="font-size:0.78rem;color:var(--muted);text-align:center;margin-top:1rem;">
+                We respect your privacy. Your info is never shared or sold.
+              </p>
+
+            </form>
+          </div>
+
+          <!-- SIDEBAR -->
+          <div class="info-sidebar slide-l">
+
+            <!-- Contact info -->
+            <div class="info-card">
+              <h3>Contact Information</h3>
+              <div class="info-item">
+                <div class="info-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                  <div class="info-lbl">Phone / Text</div>
+                  <div class="info-val"><a href="tel:9404530972">940-453-0972</a></div>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </div>
+                <div>
+                  <div class="info-lbl">Instagram</div>
+                  <div class="info-val">
+                    <a href="https://instagram.com/gunnargalvan.detailing" target="_blank" rel="noopener noreferrer">@gunnargalvan.detailing</a>
+                  </div>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <div class="info-lbl">Service Area</div>
+                  <div class="info-val">Frisco, TX &amp; Surrounding Areas</div>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div>
+                  <div class="info-lbl">Availability</div>
+                  <div class="info-val">Monday – Friday, 9am+</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- How it works -->
+            <div class="info-card">
+              <h3>How It Works</h3>
+              <div class="steps" style="margin:0;" role="list">
+                <div class="step" role="listitem">
+                  <div class="step-n" aria-hidden="true">1</div>
+                  <p><strong>Book</strong> — fill out the form or call/text us directly.</p>
+                </div>
+                <div class="step" role="listitem">
+                  <div class="step-n" aria-hidden="true">2</div>
+                  <p><strong>Confirm</strong> — we'll reach out to lock in your date, time, and location.</p>
+                </div>
+                <div class="step" role="listitem">
+                  <div class="step-n" aria-hidden="true">3</div>
+                  <p><strong>We come to you</strong> — just make sure we have access to water and a power outlet.</p>
+                </div>
+                <div class="step" role="listitem">
+                  <div class="step-n" aria-hidden="true">4</div>
+                  <p><strong>Enjoy</strong> — pick up your keys when we're done. That's it.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Leave a review -->
+            <div class="review-card">
+              <div class="stars" aria-label="5 stars" role="img">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <h3>Happy With Your Detail?</h3>
+              <p>Reviews help other customers find us and help us grow. If we did a great job, we'd really appreciate a few seconds of your time.</p>
+              <!-- Replace the href below with your actual Google Business review link -->
+              <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width:100%;justify-content:center;">
+                Leave a Google Review
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner" aria-labelledby="contact-cta-heading">
+      <div class="container">
+        <h2 id="contact-cta-heading" class="fade-up">Prefer to Just Call?</h2>
+        <p class="fade-up">We're happy to answer questions, talk through packages, and book you right over the phone. Call or text anytime during business hours.</p>
+        <div class="cta-btns fade-up">
+          <a href="tel:9404530972" class="btn btn-primary btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call or Text 940-453-0972
+          </a>
+          <a href="https://instagram.com/gunnargalvan.detailing" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            DM on Instagram
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            Gunnar Galvan<span class="logo-dot">.</span>
+            <span class="logo-sub">Mobile Detailing</span>
+          </div>
+          <p>Professional mobile car detailing in Frisco, TX and surrounding areas. We come to you — home, office, wherever works.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/gunnargalvan.detailing" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul class="footer-links" role="list">
+            <li><a href="index.html"    class="footer-link">Home</a></li>
+            <li><a href="services.html" class="footer-link">Services</a></li>
+            <li><a href="contact.html"  class="footer-link">Book an Appointment</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:9404530972">940-453-0972</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <a href="https://instagram.com/gunnargalvan.detailing" target="_blank" rel="noopener noreferrer">@gunnargalvan.detailing</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Frisco, TX &amp; Surrounding Areas</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Mon–Fri, Starting at 9am</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Gunnar Galvan Mobile Detailing. All rights reserved.</span>
+        <span>Frisco, TX</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TORZXBtributedL5JQBQLZ+IFoRLVrNJFCRRGzv4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
