@@ -9,7 +9,7 @@ window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
 /* --- Mobile nav --- */
-const toggle   = document.querySelector('.nav-toggle');
+const toggle    = document.querySelector('.nav-toggle');
 const mobileNav = document.querySelector('.nav-mobile');
 
 toggle?.addEventListener('click', () => {
@@ -32,49 +32,65 @@ document.querySelectorAll('.nav-link[data-page]').forEach(l => {
   if (l.dataset.page === page) l.classList.add('active');
 });
 
-/* --- Hero entrance (index only) --- */
+/* --- Hero (index only) --- */
 if (document.querySelector('.hero')) {
-  gsap.timeline({ defaults: { ease: 'power3.out' } })
-    .from('.hero-badge',   { opacity: 0, y: 16, duration: 0.55 }, 0.2)
-    .from('.hero h1',      { opacity: 0, y: 28, duration: 0.7  }, 0.4)
-    .from('.hero-sub',     { opacity: 0, y: 20, duration: 0.6  }, 0.6)
-    .from('.hero-actions', { opacity: 0, y: 16, duration: 0.55 }, 0.75)
-    .from('.hero-stats',   { opacity: 0, y: 12, duration: 0.5  }, 0.9);
+  /* Parallax — image drifts up as hero scrolls off */
+  gsap.to('.hero-bg img', {
+    y: '-15%',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.hero',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: 1.5
+    }
+  });
+
+  /* Dramatic entrance */
+  gsap.timeline({ defaults: { ease: 'expo.out' } })
+    .from('.hero-badge',   { opacity: 0, y: 28,  duration: 0.75 }, 0.2)
+    .from('.hero h1',      { opacity: 0, y: 80,  duration: 1.2  }, 0.35)
+    .from('.hero-sub',     { opacity: 0, y: 52,  duration: 1.0  }, 0.62)
+    .from('.hero-actions', { opacity: 0, y: 36,  duration: 0.9  }, 0.82)
+    .from('.hero-stats',   { opacity: 0, y: 24,  duration: 0.75 }, 1.02);
 }
 
 /* --- Page hero entrance (inner pages) --- */
 if (document.querySelector('.page-hero')) {
-  gsap.timeline({ defaults: { ease: 'power3.out' } })
-    .from('.page-hero .label-tag', { opacity: 0, y: 12, duration: 0.5 }, 0.2)
-    .from('.page-hero h1',         { opacity: 0, y: 22, duration: 0.6 }, 0.35)
-    .from('.page-hero p',          { opacity: 0, y: 16, duration: 0.5 }, 0.5);
+  gsap.timeline({ defaults: { ease: 'expo.out' } })
+    .from('.page-hero .label-tag', { opacity: 0, y: 20, duration: 0.65 }, 0.15)
+    .from('.page-hero h1',         { opacity: 0, y: 56, duration: 1.0  }, 0.3)
+    .from('.page-hero p',          { opacity: 0, y: 32, duration: 0.8  }, 0.52);
 }
 
 /* --- Scroll reveal helpers --- */
 const reveal = (sel, fromProps = {}) =>
   gsap.utils.toArray(sel).forEach(el =>
     gsap.from(el, {
-      opacity: 0, y: 28, duration: 0.65, ease: 'power2.out',
+      opacity: 0, y: 64, duration: 0.95, ease: 'power3.out',
       scrollTrigger: { trigger: el, start: 'top bottom', once: true },
       ...fromProps
     })
   );
 
-const batch = (sel, stagger = 0.1) =>
+const batch = (sel, stagger = 0.13) =>
   ScrollTrigger.batch(sel, {
-    onEnter: els => gsap.from(els, { opacity: 0, y: 28, duration: 0.6, ease: 'power2.out', stagger }),
+    onEnter: els => gsap.from(els, {
+      opacity: 0, y: 64, scale: 0.93, duration: 0.9,
+      ease: 'power3.out', stagger
+    }),
     start: 'top bottom', once: true
   });
 
 /* Run after DOM ready */
 document.addEventListener('DOMContentLoaded', () => {
   reveal('.fade-up');
-  reveal('.fade-in', { y: 0, duration: 0.8 });
-  reveal('.slide-r', { y: 0, x: -28 });
-  reveal('.slide-l', { y: 0, x: 28 });
-  batch('.svc-card', 0.12);
-  batch('.why-card', 0.1);
-  batch('.step',     0.07);
+  reveal('.fade-in', { y: 0, duration: 1.1 });
+  reveal('.slide-r', { y: 0, x: -64 });
+  reveal('.slide-l', { y: 0, x: 64 });
+  batch('.svc-card',    0.14);
+  batch('.why-card',    0.12);
+  batch('.step',        0.08);
   batch('.pricing-row', 0.06);
 });
 

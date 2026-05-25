@@ -224,8 +224,9 @@ p  { color: var(--silver); line-height: 1.75; }
   background: var(--surface);
 }
 .hero-bg img {
-  width: 100%; height: 100%;
+  width: 100%; height: 130%;
   object-fit: cover; opacity: 0.65;
+  will-change: transform;
 }
 .hero-overlay {
   position: absolute; inset: 0;
@@ -452,6 +453,13 @@ p  { color: var(--silver); line-height: 1.75; }
 /* Height helpers — desktop: grid manages height; fixed heights restored in ≤1024px */
 .svc-mosaic-img:not(.tall) { height: auto; }
 .svc-mosaic-img.tall { height: auto; }
+
+/* Stacked 1-2-3 variant for Exterior Detail on desktop */
+.svc-mosaic-stack {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+.svc-mosaic-stack .svc-mosaic-img.tall { grid-row: auto; }
 
 .svc-solo {
   border-radius: var(--r-xl); overflow: hidden;
@@ -692,6 +700,9 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0 100px var(--surface) inset; -
   .svc-mosaic         { height: auto; grid-template-rows: auto auto; }
   .svc-mosaic-img:not(.tall) { height: 170px; }
   .svc-mosaic-img.tall       { height: 356px; }
+  .svc-mosaic-stack          { grid-template-rows: auto; }
+  .svc-mosaic-stack .svc-mosaic-img.tall { height: 220px; }
+  .svc-mosaic-stack .svc-mosaic-img:not(.tall) { height: 220px; }
 }
 
 @media (max-width: 768px) {
