@@ -147,6 +147,9 @@ p  { color: var(--silver); line-height: 1.75; }
   z-index: 900;
   padding: var(--s4) 0;
   transition: var(--ease);
+  background: rgba(8,8,8,0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 .nav.scrolled {
   background: rgba(8,8,8,0.94);
@@ -202,7 +205,10 @@ p  { color: var(--silver); line-height: 1.75; }
 
 .nav-mobile {
   display: none; position: fixed; inset: 0;
-  background: var(--bg); z-index: 890;
+  background: rgba(8,8,8,0.82);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 890;
   flex-direction: column; align-items: center; justify-content: center; gap: var(--s10);
 }
 .nav-mobile.open { display: flex; }
