@@ -119,7 +119,7 @@ form?.addEventListener('submit', e => {
   btn.textContent = 'Sending…';
   btn.disabled = true;
   setTimeout(() => {
-    btn.textContent = 'Message Sent!';
-    btn.style.background = '#16a34a';
+    form.hidden = true;
+    document.getElementById('form-success').hidden = false;
   }, 1200);
 });

@@ -144,8 +144,14 @@
           <!-- FORM -->
           <div class="contact-form-card slide-r">
             <h2>Send Us a Message</h2>
-            <p>Thank you for booking. We will get back to you to confirm a time.</p>
-            <p style="margin-top:0.5rem;">Please have personal belongings out before we arrive, thank you.</p>
+            <p>Please have personal belongings out before we arrive, thank you.</p>
+
+            <!-- Success state — hidden until form submits -->
+            <div class="form-success" id="form-success" hidden>
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="20 6 9 17 4 12"/></svg>
+              <h3>Thank you for booking!</h3>
+              <p>We will get back to you to confirm a time.</p>
+            </div>
 
             <form class="contact-form" novalidate aria-label="Booking request form">
 
