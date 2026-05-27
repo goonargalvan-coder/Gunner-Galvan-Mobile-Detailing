@@ -99,27 +99,45 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* --- Form submit (contact page) --- */
-const form = document.querySelector('.contact-form');
-
-/* Anti-spam: stamp load time so we can reject instant submissions */
+const form    = document.querySelector('.contact-form');
 const tsField = document.getElementById('gotcha-ts');
+
+/* Anti-spam: stamp load time so we can reject instant bot submissions */
 if (tsField) tsField.value = Date.now();
 
-form?.addEventListener('submit', e => {
+form?.addEventListener('submit', async e => {
   e.preventDefault();
 
-  /* --- Anti-spam checks --- */
-  const honeypot = form.querySelector('[name="website"]');
-  if (honeypot && honeypot.value) return;            /* bot filled hidden field */
+  /* Client-side anti-spam checks */
+  const honeypot = form.querySelector('[name="_gotcha"]');
+  if (honeypot && honeypot.value) return;             /* bot filled hidden field */
 
   const elapsed = Date.now() - Number(tsField?.value || 0);
-  if (elapsed < 3000) return;                         /* submitted in < 3s = bot */
+  if (elapsed < 3000) return;                          /* submitted in < 3s = bot */
 
-  const btn = form.querySelector('[type=submit]');
+  const btn      = form.querySelector('[type=submit]');
+  const errMsg   = document.getElementById('form-error');
+
   btn.textContent = 'Sending…';
-  btn.disabled = true;
-  setTimeout(() => {
-    form.hidden = true;
-    document.getElementById('form-success').hidden = false;
-  }, 1200);
+  btn.disabled    = true;
+  errMsg.hidden   = true;
+
+  try {
+    const res = await fetch('https://formspree.io/f/xjgzjwdg', {
+      method:  'POST',
+      headers: { 'Accept': 'application/json' },
+      body:    new FormData(form)
+    });
+
+    if (res.ok) {
+      form.hidden = true;
+      document.getElementById('form-success').hidden = false;
+    } else {
+      throw new Error('Server error');
+    }
+  } catch {
+    btn.textContent = 'Send Booking Request';
+    btn.disabled    = false;
+    errMsg.hidden   = false;
+  }
 });
