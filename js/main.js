@@ -34,25 +34,19 @@ document.querySelectorAll('.nav-link[data-page]').forEach(l => {
 
 /* --- Hero (index only) --- */
 if (document.querySelector('.hero')) {
-  /* Parallax — image drifts up as hero scrolls off */
+  /* Parallax */
   gsap.to('.hero-bg img', {
-    y: '-15%',
-    ease: 'none',
-    scrollTrigger: {
-      trigger: '.hero',
-      start: 'top top',
-      end: 'bottom top',
-      scrub: 1.5
-    }
+    y: '-15%', ease: 'none',
+    scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.5 }
   });
 
-  /* Dramatic entrance */
+  /* Entrance — hero is always above fold so gsap.from is fine here */
   gsap.timeline({ defaults: { ease: 'expo.out' } })
-    .from('.hero-badge',   { opacity: 0, y: 28,  duration: 0.75 }, 0.2)
-    .from('.hero h1',      { opacity: 0, y: 80,  duration: 1.2  }, 0.35)
-    .from('.hero-sub',     { opacity: 0, y: 52,  duration: 1.0  }, 0.62)
-    .from('.hero-actions', { opacity: 0, y: 36,  duration: 0.9  }, 0.82)
-    .from('.hero-stats',   { opacity: 0, y: 24,  duration: 0.75 }, 1.02);
+    .from('.hero-badge',   { opacity: 0, y: 28, duration: 0.75 }, 0.2)
+    .from('.hero h1',      { opacity: 0, y: 80, duration: 1.2  }, 0.35)
+    .from('.hero-sub',     { opacity: 0, y: 52, duration: 1.0  }, 0.62)
+    .from('.hero-actions', { opacity: 0, y: 36, duration: 0.9  }, 0.82)
+    .from('.hero-stats',   { opacity: 0, y: 24, duration: 0.75 }, 1.02);
 }
 
 /* --- Page hero entrance (inner pages) --- */
@@ -63,35 +57,43 @@ if (document.querySelector('.page-hero')) {
     .from('.page-hero p',          { opacity: 0, y: 32, duration: 0.8  }, 0.52);
 }
 
-/* --- Scroll reveal helpers --- */
-const reveal = (sel, fromProps = {}) =>
-  gsap.utils.toArray(sel).forEach(el =>
-    gsap.from(el, {
-      opacity: 0, y: 64, duration: 0.95, ease: 'power3.out',
-      scrollTrigger: { trigger: el, start: 'top bottom', once: true },
-      ...fromProps
-    })
-  );
+/* ============================================================
+   SCROLL REVEAL
+   Pattern: gsap.set() hides elements immediately, then gsap.to()
+   fires on scroll — avoids immediateRender flicker from gsap.from()
+   ============================================================ */
 
-const batch = (sel, stagger = 0.13) =>
-  ScrollTrigger.batch(sel, {
-    onEnter: els => gsap.fromTo(els,
-      { opacity: 0, y: 64 },
-      { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', stagger, overwrite: true }
-    ),
-    start: 'top 92%', once: true
+const reveal = (sel, initState = {}, toState = {}) =>
+  gsap.utils.toArray(sel).forEach(el => {
+    gsap.set(el, { opacity: 0, y: 64, ...initState });
+    gsap.to(el, {
+      opacity: 1, y: 0, x: 0, duration: 0.95, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 92%', once: true },
+      ...toState
+    });
   });
 
-/* Run after DOM ready */
+const batch = (sel, stagger = 0.13) => {
+  gsap.set(sel, { opacity: 0, y: 64 });
+  ScrollTrigger.batch(sel, {
+    onEnter: els => gsap.to(els, {
+      opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', stagger
+    }),
+    start: 'top 92%', once: true
+  });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   reveal('.fade-up');
-  reveal('.fade-in', { y: 0, duration: 1.1 });
+  reveal('.fade-in', { y: 0 }, { duration: 1.1 });
   reveal('.slide-r', { y: 0, x: -64 });
-  reveal('.slide-l', { y: 0, x: 64 });
+  reveal('.slide-l', { y: 0, x:  64 });
   batch('.svc-card',    0.14);
   batch('.why-card',    0.12);
   batch('.step',        0.08);
   batch('.pricing-row', 0.06);
+
+  ScrollTrigger.refresh(); // recalculate after layout settles
 });
 
 /* --- Form submit (contact page) --- */
@@ -101,7 +103,6 @@ form?.addEventListener('submit', e => {
   const btn = form.querySelector('[type=submit]');
   btn.textContent = 'Sending…';
   btn.disabled = true;
-  /* Wire up your backend / EmailJS / Formspree here */
   setTimeout(() => {
     btn.textContent = 'Message Sent!';
     btn.style.background = '#16a34a';
