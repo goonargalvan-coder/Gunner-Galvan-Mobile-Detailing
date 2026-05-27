@@ -100,8 +100,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* --- Form submit (contact page) --- */
 const form = document.querySelector('.contact-form');
+
+/* Anti-spam: stamp load time so we can reject instant submissions */
+const tsField = document.getElementById('gotcha-ts');
+if (tsField) tsField.value = Date.now();
+
 form?.addEventListener('submit', e => {
   e.preventDefault();
+
+  /* --- Anti-spam checks --- */
+  const honeypot = form.querySelector('[name="website"]');
+  if (honeypot && honeypot.value) return;            /* bot filled hidden field */
+
+  const elapsed = Date.now() - Number(tsField?.value || 0);
+  if (elapsed < 3000) return;                         /* submitted in < 3s = bot */
+
   const btn = form.querySelector('[type=submit]');
   btn.textContent = 'Sending…';
   btn.disabled = true;
