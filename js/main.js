@@ -75,11 +75,11 @@ const reveal = (sel, fromProps = {}) =>
 
 const batch = (sel, stagger = 0.13) =>
   ScrollTrigger.batch(sel, {
-    onEnter: els => gsap.from(els, {
-      opacity: 0, y: 64, scale: 0.93, duration: 0.9,
-      ease: 'power3.out', stagger
-    }),
-    start: 'top bottom', once: true
+    onEnter: els => gsap.fromTo(els,
+      { opacity: 0, y: 64 },
+      { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', stagger, overwrite: true }
+    ),
+    start: 'top 92%', once: true
   });
 
 /* Run after DOM ready */
