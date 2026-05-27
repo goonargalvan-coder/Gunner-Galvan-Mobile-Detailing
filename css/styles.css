@@ -463,9 +463,8 @@ p  { color: var(--silver); line-height: 1.75; }
 /* Stacked 1-2-3 variant for Exterior Detail on desktop */
 .svc-mosaic-stack {
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
-.svc-mosaic-stack .svc-mosaic-img.tall { grid-row: auto; }
 
 .svc-solo {
   border-radius: var(--r-xl); overflow: hidden;
