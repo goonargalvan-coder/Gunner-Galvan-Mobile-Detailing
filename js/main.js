@@ -15,6 +15,7 @@ const mobileNav = document.querySelector('.nav-mobile');
 toggle?.addEventListener('click', () => {
   const open = toggle.classList.toggle('open');
   mobileNav.classList.toggle('open', open);
+  toggle.setAttribute('aria-expanded', open);
   document.body.style.overflow = open ? 'hidden' : '';
 });
 
@@ -22,6 +23,7 @@ document.querySelectorAll('.nav-mobile .nav-link').forEach(l =>
   l.addEventListener('click', () => {
     toggle.classList.remove('open');
     mobileNav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', false);
     document.body.style.overflow = '';
   })
 );
